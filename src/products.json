@@ -1,0 +1,35 @@
+[
+  {
+    "id": "aedf89ee-460a-4bb5-9431-8ea48010c2fb",
+    "title": "Auriculares",
+    "description": "Auriculares inalámbricos con cancelación de ruido",
+    "code": "AU1234",
+    "price": 10,
+    "status": true,
+    "stock": 25,
+    "category": "Electrónica",
+    "thumbnails": []
+  },
+  {
+    "id": "aaf2eeaa-ce77-4d70-8e3d-6f3f7623e05f",
+    "title": "Mouse",
+    "description": "Sin descripción",
+    "code": "MO0001",
+    "price": 1750,
+    "status": true,
+    "stock": 12,
+    "category": "Accesorios",
+    "thumbnails": []
+  },
+  {
+    "id": "b50bdfb8-2f72-46a6-9c99-01c056034548",
+    "title": "nuevo",
+    "description": "Sin descripción",
+    "code": "MO0001",
+    "price": 1750,
+    "status": true,
+    "stock": 12,
+    "category": "Accesorios",
+    "thumbnails": ""
+  }
+]
