@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "47b89e9c-fe5f-4758-908f-277dcaebc427",
+		"name": "BackendI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22625938"
+	},
+	"item": [
+		{
+			"name": "getProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{path}}/products/",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{path}}/products/?id=2f96c03c-9747-4379-8a3c-90d95f5d0852",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"products",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2f96c03c-9747-4379-8a3c-90d95f5d0852"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postProducts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"nuevo\",\n    \"description\": \"Sin descripción\",\n    \"code\": \"MO0001\",\n    \"price\": 1750,\n    \"status\": true,\n    \"stock\": 12,\n    \"category\": \"Accesorios\",\n    \"thumbnails\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{path}}/products",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putProducts",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{path}}/products/aedf89ee-460a-4bb5-9431-8ea48010c2fb",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"products",
+						"aedf89ee-460a-4bb5-9431-8ea48010c2fb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "aedf89ee-460a-4bb5-9431-8ea48010c2fb",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCartbyID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{path}}/carts/9948d691-678d-4009-93a1-66317f77829c",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"carts",
+						"9948d691-678d-4009-93a1-66317f77829c"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9948d691-678d-4009-93a1-66317f77829c",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{path}}/carts",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post_item_to_cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"quantity\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{path}}/carts/2aa2e7e1-d484-4257-ab03-0cc01d0494ae/product/aedf89ee-460a-4bb5-9431-8ea48010c2fb",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"carts",
+						"2aa2e7e1-d484-4257-ab03-0cc01d0494ae",
+						"product",
+						"aedf89ee-460a-4bb5-9431-8ea48010c2fb"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "path",
+			"value": ""
+		}
+	]
+}
