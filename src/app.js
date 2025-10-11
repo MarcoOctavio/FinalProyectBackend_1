@@ -53,6 +53,7 @@ app.put("/api/products/:pid", async(req, res)=> {
   }
 });
 
+//endpoints Carts
 app.post("/api/carts", async (req, res) => {
   try {
     const newCart = await cartManager.createCart();
@@ -66,10 +67,6 @@ app.post("/api/carts", async (req, res) => {
   }
 });
 
-/**
- * GET /api/carts/:cid
- * Lista los productos del carrito (array de { product, quantity })
- */
 app.get("/api/carts/:cid", async (req, res) => {
   const { cid } = req.params;
   try {
@@ -85,11 +82,6 @@ app.get("/api/carts/:cid", async (req, res) => {
   }
 });
 
-/**
- * POST /api/carts/:cid/product/:pid
- * Agrega/incrementa un producto (quantity opcional, default 1)
- * body: { "quantity": 3 }
- */
 app.post("/api/carts/:cid/product/:pid", async (req, res) => {
   const { cid, pid } = req.params;
   const qty = Number.isFinite(req.body?.quantity) ? Number(req.body.quantity) : 1;
