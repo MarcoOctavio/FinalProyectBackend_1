@@ -30,7 +30,7 @@
     "status": true,
     "stock": 12,
     "category": "Accesorios",
-    "thumbnails": ""
+    "thumbnails": []
   },
   {
     "id": "fc64133e-317f-4b97-9035-dac5843d3bc4",
@@ -41,7 +41,7 @@
     "status": true,
     "stock": 12,
     "category": "Accesorios",
-    "thumbnails": ""
+    "thumbnails": []
   },
   {
     "id": "928c0e24-02ff-40ea-882e-d0c0df06c06f",

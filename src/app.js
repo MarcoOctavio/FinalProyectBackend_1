@@ -7,7 +7,7 @@ app.use( express.json() );
 const productManager = new ProductManager("./src/products.json");
 const cartManager = new CartManager("./src/carts.json");
 
-//endpoints
+//endpoints Products
 app.get("/", (req, res)=> {
   res.json( { status: "success", message: "Hola Mundo!" } )
 })
