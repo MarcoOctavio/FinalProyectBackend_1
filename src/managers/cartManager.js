@@ -1,4 +1,3 @@
-// src/managers/cartManager.js
 import fs from "fs/promises";
 import crypto from "crypto";
 
