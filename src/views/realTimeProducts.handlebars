@@ -1,53 +1,34 @@
+<!-- src/views/realTimeProducts.handlebars -->
 <h1>Productos en tiempo real</h1>
 
-<form id="productForm">
-  <input type="text" id="title" placeholder="Título" required />
-  <input type="text" id="description" placeholder="Descripción" required />
-  <input type="text" id="code" placeholder="Código" required />
-  <input type="number" id="price" placeholder="Precio" required />
-  <input type="number" id="stock" placeholder="Stock" required />
-  <input type="text" id="category" placeholder="Categoría" required />
+<form id="createForm">
+  <input type="text" name="title" placeholder="Título" required />
+  <input type="text" name="description" placeholder="Descripción" />
+  <input type="text" name="code" placeholder="Código" />
+  <input type="number" name="price" placeholder="Precio" required />
+  <input type="number" name="stock" placeholder="Stock" required />
+  <input type="text" name="category" placeholder="Categoría" />
   <button type="submit">Agregar producto</button>
+  <span id="createMsg" style="margin-left:10px;"></span>
 </form>
 
-<ul id="productList"></ul>
+<hr>
+
+<table border="1" cellspacing="0" cellpadding="5">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Código</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Categoría</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody id="productsTbody"></tbody>
+</table>
 
 <script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io();
-  const list = document.getElementById("productList");
-  const form = document.getElementById("productForm");
-
-  // Renderiza lista
-  socket.on("products", (products) => {
-    list.innerHTML = "";
-    products.forEach(p => {
-      const li = document.createElement("li");
-      li.innerHTML = `
-        <strong>${p.title}</strong> — $${p.price}
-        <button onclick="deleteProduct('${p.id}')">❌</button>
-      `;
-      list.appendChild(li);
-    });
-  });
-
-  // Enviar nuevo producto
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const newProduct = {
-      title: title.value,
-      description: description.value,
-      code: code.value,
-      price: Number(price.value),
-      stock: Number(stock.value),
-      category: category.value
-    };
-    socket.emit("newProduct", newProduct);
-    form.reset();
-  });
-
-  // Eliminar producto
-  function deleteProduct(id) {
-    socket.emit("deleteProduct", id);
-  }
-</script>
+<script src="/js/realtime.js"></script>

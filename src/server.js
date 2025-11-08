@@ -20,25 +20,35 @@ const httpServer = createServer(app);
 const io = new Server(httpServer);
 
 io.on("connection", async (socket) => {
-  console.log("🟢 Cliente conectado");
+  console.log("🟢 Nuevo cliente conectado");
 
   const products = await productManager.getProducts();
   socket.emit("products", products);
 
-  socket.on("newProduct", async (data) => {
-    await productManager.addProduct(data);
-    const updated = await productManager.getProducts();
-    io.emit("products", updated); 
+  socket.on("createProduct", async (data, cb) => {
+    try {
+      await productManager.addProduct(data);
+      const updated = await productManager.getProducts();
+      io.emit("products", updated);
+      cb({ ok: true });
+    } catch (err) {
+      cb({ ok: false, error: err.message });
+    }
   });
 
-  socket.on("deleteProduct", async (id) => {
-    await productManager.deleteProduct(id);
-    const updated = await productManager.getProducts();
-    io.emit("products", updated);
+  socket.on("deleteProduct", async (id, cb) => {
+    try {
+      await productManager.deleteProduct(id);
+      const updated = await productManager.getProducts();
+      io.emit("products", updated);
+      cb({ ok: true });
+    } catch (err) {
+      cb({ ok: false, error: err.message });
+    }
   });
 
   socket.on("disconnect", () => console.log("🔴 Cliente desconectado"));
 });
 
 const PORT = 8080;
-httpServer.listen(PORT, () => console.log(`🚀 Servidor activo en puerto ${PORT}`));
+httpServer.listen(PORT, () => console.log(`🚀 Servidor corriendo en puerto ${PORT}`));
