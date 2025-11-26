@@ -4,6 +4,7 @@ import { Server } from "socket.io";
 import { engine } from "express-handlebars";
 import path from "path";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
 
 import app from "./app.js";
 import ProductManager from "./managers/productManager.js";
@@ -11,6 +12,7 @@ import ProductManager from "./managers/productManager.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const productManager = new ProductManager("./src/data/products.json");
+dotenv.config();
 
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
